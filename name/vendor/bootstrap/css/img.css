@@ -1,0 +1,26 @@
+
+
+
+.bul {
+  display:inline-block;   
+    position:relative;
+    width: 100%;
+}
+
+
+
+.text {
+   display: inline-block; 
+    position: absolute; 
+    bottom: 24px; left: 120px; 
+    background-color: rgba(0,0,0,.4); 
+    padding: 5px 5px 5px 10px;
+    color: white
+}
+
+
+@media screen and  (max-width: 1000px) {
+  .text {
+    display: none;
+  }
+}
