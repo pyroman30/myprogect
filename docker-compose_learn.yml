@@ -1,0 +1,32 @@
+version: "3"
+services:
+        mysql:
+                deploy:
+                       replicas: 1
+                image: mysql
+                ports:
+                        - 3306:3306
+                environment:
+                        - MYSQL_ROOT_PASSWORD=vecrek
+        nginx:
+                deploy:
+                        replicas: 2
+                image: elve/nginxtest
+                ports:
+                        - 80:80
+                links:
+                        - php
+                volumes:
+                        - mywww:/var/www
+        php:
+                deploy:
+                        replicas: 1
+                image: macedigital/phpfpm
+                volumes:
+                        - mywww:/var/www
+volumes:
+        mywww:
+                driver_opts:
+                        type: "nfs"
+                        o: "addr=192.168.88.241,nolock,soft,rw"
+                        device: ":/docker/learning"
