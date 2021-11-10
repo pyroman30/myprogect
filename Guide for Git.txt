@@ -1,0 +1,48 @@
+git config --global user.name ""
+git config --global user.email ""
+git config -l посмотреть конфиг
+
+git init - инициализация дериктории
+git clone - скачивание с удаленного репозитория
+git push - загрузка проета
+git log - посмотреть логи и hash commit(история)
+
+# Возврат на предыдущие версии git
+
+git chckout (номер хэша) - временно вернуться на версию, не убивая новые версии
+git checkout master - вернуться обратно на ветку мастер
+git commit --amend  - изменить commit
+git reset --hard HEAD~2 полностью вернуться на 2 commit назад
+git reset --soft HEAD~3 стереть 3 commit(файлы не меняют версии)
+
+
+# История изменений, .gitignore, и восстановление файлов
+git log -1 - последний коммит
+git log -1 -p посмотреть что было сделано в коммите
+git checkout --file1 вернуть файл в предыдущее состояние
+git diff --staged показывает что будет записано в git log
+
+-------------------------------------------
+.gitignore игнорировать файлы в дериктории 
+*.log
+logs/
+file1
+--------------------------------------------
+git add .gitignore
+
+# Создание и работа с branch
+
+По умолчанию ветка одна Master
+
+Коммиты не делаются в master branch. Создается отдельная ветка
+
+git branch -показать ветки
+git branch fix_error - создание ветки
+git checkout fix_error - перейти на ветку
+git branch -d fix_error - стереть ветку
+git checkout -b fix_error - создать и перейти на ветку
+git merge fix_error -соединить ветки
+git branch -d fix_error -стираем ветку
+
+
+
